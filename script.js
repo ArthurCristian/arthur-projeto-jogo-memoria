@@ -58,12 +58,20 @@ function resetBoard() {
 }
 
 //função que embaralha as cartas
-(function shuffle() {
+function shuffle() {
     cards.forEach((card) => {
         let ramdomPosition = Math.floor(Math.random() * 12);
         card.style.order = ramdomPosition;
-    })
-})();
+    });
+}
+
+//adiciona evento de clique na carta
+
+function enableCards() {
+    cards.forEach((card) => {
+        card.addEventListener('click', flipCard)
+    });
+}
 
 function checkForEnd(){
     let resetGame = 0;
@@ -79,19 +87,9 @@ function checkForEnd(){
             cards.forEach((card) => {
                 card.classList.remove('flip');
             });
-    
             setTimeout(() => {
-            (function shuffle() {
-                cards.forEach((card) => {
-                    let ramdomPosition = Math.floor(Math.random() * 12);
-                    card.style.order = ramdomPosition;
-                })
-            })();
-    
-            cards.forEach((card) => {
-                card.addEventListener('click', flipCard)
-            });
-
+            shuffle();
+            enableCards();
             resetBoard();
 
             }, 1000);
@@ -99,7 +97,6 @@ function checkForEnd(){
     }
 }
 
-//adiciona evento de clique na carta
-cards.forEach((card) => {
-    card.addEventListener('click', flipCard)
-});
+
+shuffle();
+enableCards();
