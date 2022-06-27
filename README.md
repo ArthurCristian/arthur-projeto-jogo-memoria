@@ -1,4 +1,4 @@
-# Quebra-Cabeça!
+# Jogo-da-Memória!
 
 Esse é o repositório do projeto apresentado em aula prática!
 
